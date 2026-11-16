@@ -1,0 +1,109 @@
+﻿body {
+    /* CAREER COMPASS - MAROON & LIGHT PINK THEME */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: #FFF7FA;
+        color: #3D2630;
+        line-height: 1.6;
+    }
+    /* NAVIGATION */
+    nav {
+        background: #641E35;
+        color: white;
+        padding: 18px 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 18px;
+            font-weight: bold;
+        }
+    /* MAIN CONTAINER */
+    .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        background: white;
+        border-radius: 14px;
+        box-shadow: 0 4px 18px rgba(100, 30, 53, 0.10);
+    }
+    /* HEADINGS */
+    h1, h2, h3 {
+        color: #641E35;
+        margin-bottom: 15px;
+    }
+    /* FORMS */
+    form {
+        margin-top: 20px;
+    }
+
+    label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+        color: #641E35;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+        padding: 12px;
+        margin-top: 7px;
+        border: 1px solid #E9B7C8;
+        border-radius: 7px;
+        background: #FFF7FA;
+        font-size: 15px;
+    }
+    /* BUTTONS */
+    button {
+        background: #641E35;
+        color: white;
+        border: none;
+        padding: 12px 22px;
+        border-radius: 7px;
+        margin-top: 18px;
+        cursor: pointer;
+        font-size: 15px;
+    }
+
+        button:hover {
+            background: #8B3452;
+        }
+    /* CARDS AND RESULTS */
+    .result,
+    .card {
+        background: #F8DCE5;
+        border: 1px solid #E9B7C8;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+    /* LINKS */
+    a {
+        color: #8B3452;
+    }
+    /* MOBILE RESPONSIVENESS */
+    @media (max-width: 600px) {
+        .container {
+            margin: 20px 12px;
+            padding: 20px;
+        }
+
+        nav {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+}
