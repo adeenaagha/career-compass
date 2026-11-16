@@ -1,27 +1,29 @@
-
 import os
 from flask import Flask, render_template, request, redirect, url_for, session, flash
-from werkzeug.security import generate_password_hash, check_password_hash
-from dotenv import load_dotenv
-from supabase import create_client
 
-load_dotenv()
 app = Flask(__name__)
+
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except Exception as error:
+    print("Dotenv error:", error)
 
 app.secret_key = os.getenv("FLASK_SECRET_KEY", "temporary-development-key")
 
-# Connect to Supabase
+from werkzeug.security import generate_password_hash, check_password_hash
+
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 
 supabase = None
 
-if SUPABASE_URL and SUPABASE_KEY:
-    supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
-
-
-def database_ready():
-    return supabase is not None
+try:
+    from supabase import create_client
+    if SUPABASE_URL and SUPABASE_KEY:
+        supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+except Exception as error:
+    print("Supabase error:", error)
 
 
 # Career recommendations
