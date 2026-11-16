@@ -17,7 +17,13 @@
 
     <div class="container">
 
-        {% if mode == "signup" %}
+        {% if mode == "choice" %}
+        <h2>Welcome to Career Compass!</h2>
+        <p>Please create an account or log in.</p>
+        <a href="{{ url_for('signup') }}">Sign Up</a>
+        <a href="{{ url_for('login') }}">Log In</a>
+
+        {% elif mode == "signup" %}
 
         <h2>Create Your Account</h2>
         <p>Join Career Compass to explore your future.</p>

@@ -67,6 +67,8 @@ EDUCATION_JOBS = {
 
 @app.route("/", methods=["GET", "POST"])
 def home():
+        if "user_id" not in session:
+        return render_template("TI.html", mode="choice")
     result = None
 
     if request.method == "POST":
@@ -127,7 +129,7 @@ def signup():
             if response.data:
                 session["user_id"] = response.data[0]["id"]
                 session["user_name"] = name
-                return redirect(url_for("dashboard"))
+                return redirect(url_for("home"))
 
             flash("Could not create your account. Please try again.")
 
@@ -158,7 +160,7 @@ def login():
                 if check_password_hash(user["password_hash"], password):
                     session["user_id"] = user["id"]
                     session["user_name"] = user["full_name"]
-                    return redirect(url_for("dashboard"))
+                    return redirect(url_for("home"))
 
             flash("Incorrect email or password.")
 
