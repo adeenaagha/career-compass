@@ -25,7 +25,8 @@ try:
 except Exception as error:
     print("Supabase error:", error)
 
-
+def database_ready():
+    return supabase is not None
 # Career recommendations
 CAREERS = {
     "Arts": [
@@ -68,8 +69,9 @@ EDUCATION_JOBS = {
 
 @app.route("/", methods=["GET", "POST"])
 def home():
-        if "user_id" not in session:
+    if "user_id" not in session:
         return render_template("TI.html", mode="choice")
+
     result = None
 
     if request.method == "POST":
@@ -96,7 +98,6 @@ def home():
         education_levels=EDUCATION_JOBS.keys(),
         result=result
     )
-
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
